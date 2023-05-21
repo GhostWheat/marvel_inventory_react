@@ -52,8 +52,11 @@ interface gridData {
 
 export const DataTable = () => {
     let { heroData, getData } = useGetData()
+    // console.log(`here is heroData: ${heroData} and getData: ${getData}`);
     let [open, setOpen] = useState(false)
     let [gridData, setData] = useState<GridRowSelectionModel>([])
+
+    // console.log(`gridData: ${gridData}`)
 
     const handleOpen = () => {
         setOpen(true)
@@ -73,13 +76,15 @@ export const DataTable = () => {
 //conditionally render data table if we have an authenticated user
 
     const MyAuth = localStorage.getItem('myAuth')
-    console.log(MyAuth)
+    console.log(`MyAuth: ${MyAuth}`)
 
-    if (MyAuth=="true") {
+    if (MyAuth == "true") {
+        console.log(`heroData: ${heroData}`)
     return (
         <Box sx={{ height: 400, width: '100%' }}>
             <h2>Heroes in Inventory</h2>
             <DataGrid
+
                 rows={heroData}
                 columns={columns}
                 initialState={{

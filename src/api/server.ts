@@ -9,10 +9,12 @@ export const serverCalls = {
                 'x-access-token': `Bearer ${token}`
             }
         });
-
         if (!response.ok){
             throw new Error('Failed to fetch data from server')
         }
+        // let temp = response
+        // console.log(temp.json())
+        // console.log('response:', response)
 
         return await response.json()
     },

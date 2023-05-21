@@ -9,10 +9,10 @@ interface HeroState { //these keynames will NEED to match the
 }
 
 const initialState: HeroState = {
-    hero_name: '',
-    description: '',
+    hero_name: 'I am a placeholder',
+    description: 'I am a placeholder',
     comics_appeared_in: 0,
-    super_power: '',
+    super_power: 'placeholder',
 }
 
 const rootSlice = createSlice({

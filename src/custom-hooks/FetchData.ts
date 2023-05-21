@@ -3,7 +3,6 @@ import { serverCalls } from '../api'
 
 export const useGetData = () => {
     const [heroData, setData] = useState<[]>([])
-
     async function handleDataFetch(){
         const result = await serverCalls.get();
         setData(result)
@@ -13,6 +12,8 @@ export const useGetData = () => {
     useEffect( () => {
         handleDataFetch();
     }, [])
+    console.log(`heroData:`, heroData)
+    // let temp = heroData
 
     return {heroData, getData:handleDataFetch}
 }
