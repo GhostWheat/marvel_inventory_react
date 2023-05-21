@@ -3,8 +3,10 @@ import React from 'react';
 import { styled } from '@mui/system';
 import { Button } from '@mui/material';
 
-import droneImage from '../../assets/images/drone-image-unsplash.jpg';
+import backgroundImage from '../../assets/images/wp2903360-marvel-background.jpg';
 import { Link } from 'react-router-dom';
+import { BorderAllRounded, Minimize } from '@mui/icons-material';
+import { grey } from '@mui/material/colors';
 
 // put your package name in a string!!!
 // we will need to import it in all components even if it doesn't light up
@@ -27,6 +29,8 @@ const NavBarContainer = styled('div')({
     justifyContent: 'space-between',
     alignItems: 'center'
 })
+
+
 
 const Logo = styled('h1')({
     margin: '0 0 0 0.45em'
@@ -53,7 +57,7 @@ const NavA = styled(Link)({
 })
 
 const Main = styled('main')({
-    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${droneImage})`,
+    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(${backgroundImage})`,
     width: '100%',
     height: '100%',
     backgroundSize: 'cover',
@@ -63,17 +67,58 @@ const Main = styled('main')({
 })
 
 
-
 const MainText = styled('div')({
     textAlign: 'center',
     position: 'relative',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    color: 'white'
+    color: 'white',
+    // backgroundImage: 'rgb(255,255,255,0.5)',
+    // backgroundColor: 'darkorange',
+    border: 'solid 2px white',
+    borderRadius: '5px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '40%',
+    minWidth: '360px',
+    height: '30%',
+    minHeight: '180px',
+    padding: '2em',
+
+
 })
 
+const MarvSplashText = styled('h1')({
+    fontSize: '4.5rem',
+    marginBottom: '0rem',
+})
 
+const DashButton = styled(Button)({
+    color: grey[50],
+    borderColor: grey[50],
+    marginTop: '1rem',
+
+    '&:active': {
+        backgroundColor: 'black',
+        borderColor: 'darkgrey',
+        color: 'darkgrey',
+        // boxShadow: '0 0 0 0.2rem red',
+      },
+    '&:hover': {
+        // backgroundColor: 'white',
+        color: 'darkgrey',
+        borderColor: 'darkgrey',
+        boxShadow: 'none',
+    },
+
+    '&:focus': {
+        boxShadow: '0 0 0 0.2rem darkgrey',
+    },
+
+})
 
 // using export DEFAULT CONST instead of export const would only allow us to do 1 component per file
 export const Home = (props: Props) => {
@@ -81,9 +126,9 @@ export const Home = (props: Props) => {
     return ( // this is what you are rendering on the page for that component
         <Root>
             <NavBarContainer>
-                <Logo>
+                {/* <Logo>
                     <LogoA href="#">Brand</LogoA>
-                </Logo>
+                </Logo> */}
                 <LogoNavigation>
                     <li>
                         <NavA to='/'>Home</NavA>
@@ -102,9 +147,9 @@ export const Home = (props: Props) => {
 
             <Main>
                 <MainText>
-                    <h1>{props.title}</h1>
-                    <p>"Fly, you fools!"</p>
-                    <Button color="primary" variant='contained' component={Link} to='/dashboard'>See The Drones</Button>
+                    <MarvSplashText>{props.title}</MarvSplashText>
+                    <p>Log in or sign up to see your collection of heroes!</p>
+                    <DashButton color='warning' variant='outlined' href='/dashboard'>Go To Dashboard</DashButton>
 
                 </MainText>
             </Main>
