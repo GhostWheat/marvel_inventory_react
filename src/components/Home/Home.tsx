@@ -26,8 +26,12 @@ const Root = styled('div')({
 
 const NavBarContainer = styled('div')({
     display: 'flex',
+    // flexWrap: 'wrap',
     justifyContent: 'space-between',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: '#20374c',
+    position: 'relative',
+    zIndex: '100',
 })
 
 
@@ -45,15 +49,30 @@ const LogoA = styled('a')({
 
 const LogoNavigation = styled('ul')({
     listStyle: 'none',
-    textTransform: 'uppercase',
+    // textTransform: 'uppercase',
     textDecoration: 'none',
-    display: 'flex'
+    display: 'flex',
+    // justifyItems: 'space-between',
+    justifyContent: 'space-between',
+    alignItems: 'space-between',
+    // alignContent: 'space-between',
+    // border: '1px solid white',
+    width: '100%',
 })
 
 const NavA = styled(Link)({
     display: 'block',
     padding: '1em',
-    color: 'black'
+    color: '#498cce',
+    textDecoration: 'none',
+    '&:hover': {
+        color: '#397cba',
+        // backgroundColor: 'green',
+    },
+    // justifyItems: 'space-between',
+    // justifyContent: 'space-between',
+    // alignItems: 'space-between',
+    // alignContent: 'space-between',
 })
 
 const Main = styled('main')({
@@ -87,12 +106,11 @@ const MainText = styled('div')({
     height: '30%',
     minHeight: '180px',
     padding: '2em',
-
-
+    zIndex: 'revert'
 })
 
 const MarvSplashText = styled('h1')({
-    fontSize: '4.5rem',
+    fontSize: '4.1rem',
     marginBottom: '0rem',
 })
 
@@ -125,7 +143,7 @@ export const Home = (props: Props) => {
     //up here would be wehre functionality goes
     return ( // this is what you are rendering on the page for that component
         <Root>
-            <NavBarContainer>
+            <NavBarContainer x-style=''>
                 {/* <Logo>
                     <LogoA href="#">Brand</LogoA>
                 </Logo> */}
@@ -146,7 +164,7 @@ export const Home = (props: Props) => {
             </NavBarContainer>
 
             <Main>
-                <MainText>
+                <MainText x-style='z-index: 0'>
                     <MarvSplashText>{props.title}</MarvSplashText>
                     <p>Log in or sign up to see your collection of heroes!</p>
                     <DashButton color='warning' variant='outlined' href='/dashboard'>Go To Dashboard</DashButton>
