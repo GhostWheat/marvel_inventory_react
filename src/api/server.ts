@@ -26,11 +26,14 @@ export const serverCalls = {
                 'Content-Type': 'application/JSON',
                 'x-access-token': `Bearer ${token}`
             },
+
             body: JSON.stringify(data)
         });
 
+        console.log(response)
+
         if(!response.ok){
-            throw new Error(`Failed to Created new data on server`)
+            throw new Error(`Failed to post new data on server`)
         }
 
         return await response.json()
@@ -47,7 +50,7 @@ export const serverCalls = {
         });
 
         if(!response.ok){
-            throw new Error(`Failed to create new data on server`)
+            throw new Error(`Failed to update data on server`)
         }
 
         console.log(`success: updated hero with id ${id}`)
